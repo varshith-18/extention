@@ -22,7 +22,7 @@
 body {
     width: 520px;
     min-width: 420px;
-    background: var(--bg);
+    background-color: var(--bg);
     color: var(--text);
     font-family: "Segoe UI", sans-serif;
     font-size: 13px;
@@ -30,6 +30,21 @@ body {
 
 .container {
     padding: 25px;
+    background-color: var(--bg);
+}
+
+.response-panel {
+    background: rgba(23, 30, 26, 0.88);
+    backdrop-filter: blur(8px);
+}
+
+#quiz-section {
+    margin-top: 24px;
+    padding: 19px;
+    background: rgba(23, 30, 26, 0.90);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 11px;
 }
 
 /* HEADER */

@@ -1,12 +1,30 @@
 {
-    "manifest_version": 3,
-    "name": "AI Code Assistant",
-    "version": "1.0",
-    "permissions": [],
-    "host_permissions": [
-        "http://localhost:5000/*"
-    ],
-    "action": {
-        "default_popup": "popup.html"
+  "manifest_version": 3,
+  "name": "GhostCode AI",
+  "version": "1.0",
+  "description": "Your intelligent coding companion",
+
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png"
     }
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "host_permissions": [
+    "http://localhost:5000/*"
+  ]
+
 }
