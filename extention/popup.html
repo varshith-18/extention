@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,26 +8,56 @@
     <title>GhostCode AI</title>
     <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
-    <div id="main">
-        <div id="title">
-            <h1>GhostCode AI</h1>
-        </div>
-        <div id="input">
-            <input type="text" id="inputText" placeholder="Enter your code here">
-        </div>
+    <div class="container">
+        <h2>👻 GhostCode AI</h2>
+
+        <textarea id="prompt" placeholder="Ask anything about your code..."></textarea>
+
+        <textarea id="code" placeholder="Paste your code here..."></textarea>
+
+        <button id="submitBtn">
+            ✨ Generate Response
+        </button>
+
         <div id="output">
-            <p id="outputText"></p>
+            <div class="output-header">
+                <h3>✨ AI Response</h3>
+                <span class="status">● Ready</span>
+            </div>
+
+            <div id="result" class="response-content">
+                Your response will appear here...
+            </div>
         </div>
-    </div>   
-    <div>
-      <h1>WHAT SHOULD GHOSTCODE AI DO</h1>
-      <ul>
-        <li>Suggest improvements</li>
-        <li>Explain code</li>
-        <li>Translate code</li>
-      </ul>
     </div>
+    <div id="quiz-section">
+
+        <div class="quiz-header">
+            <h3>🧠 Test Your Knowledge</h3>
+            <p>Generate a quiz based on your code</p>
+        </div>
+
+        <select id="questionCount">
+            <option value="5">5 Questions</option>
+            <option value="10">10 Questions</option>
+        </select>
+
+        <button id="generateQuizBtn">
+            Generate Quiz
+        </button>
+
+        <div id="quiz-container"></div>
+
+        <div id="quiz-result"></div>
+
+    </div>
+
+    <script src="libs/purify.min.js"></script>
+    <script src="libs/marked.umd.js"></script>
     <script src="script.js"></script>
+    <script src="quiz.js"></script>
 </body>
+
 </html>
