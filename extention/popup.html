@@ -10,28 +10,77 @@
 </head>
 
 <body>
+
+
     <div class="container">
-        <h2>👻 GhostCode AI</h2>
 
-        <textarea id="prompt" placeholder="Ask anything about your code..."></textarea>
+        <!-- Header -->
+        <header class="app-header">
+            <div class="brand-symbol">G</div>
 
-        <textarea id="code" placeholder="Paste your code here..."></textarea>
-
-        <button id="submitBtn">
-            ✨ Generate Response
-        </button>
-
-        <div id="output">
-            <div class="output-header">
-                <h3>✨ AI Response</h3>
-                <span class="status">● Ready</span>
+            <div class="brand-info">
+                <p class="eyebrow">DEVELOPER WORKSPACE</p>
+                <h1>GhostCode <span>AI</span></h1>
+                <p class="tagline">Understand. Debug. Improve.</p>
             </div>
 
-            <div id="result" class="response-content">
-                Your response will appear here...
+            <div class="connection-status">
+                <span class="status-dot"></span>
+                LOCAL
             </div>
-        </div>
+        </header>
+
+        <!-- Main workspace -->
+        <main class="workspace">
+
+            <div class="field-group">
+                <div class="field-heading">
+                    <label for="prompt">YOUR QUESTION</label>
+                    <span>01</span>
+                </div>
+
+                <textarea id="prompt" placeholder="What would you like to understand or solve?"></textarea>
+                <p class="field-hint">Describe the problem or ask a coding question.</p>
+            </div>
+
+            <div class="field-group">
+                <div class="field-heading">
+                    <label for="code">YOUR CODE</label>
+                    <span>02</span>
+                </div>
+
+                <textarea id="code" placeholder="// Paste your code here..."></textarea>
+                <p class="field-hint">Paste a snippet or select code from a webpage.</p>
+            </div>
+
+            <button id="submitBtn">Generate response</button>
+
+            <!-- AI Response -->
+            <section id="output" class="response-panel">
+                <div class="response-header">
+                    <div>
+                        <p class="eyebrow">GHOSTCODE OUTPUT</p>
+                        <h2>Response</h2>
+                    </div>
+
+                    <span class="ready-status">
+                        <span class="status-dot"></span>
+                        READY
+                    </span>
+                </div>
+
+                <div id="result" class="response-content">
+                    Your response will appear here...
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Keep your existing quiz-section below this point -->
+
     </div>
+
+
     <div id="quiz-section">
 
         <div class="quiz-header">

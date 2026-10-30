@@ -67,6 +67,17 @@ const generateResponse = async (req, res) => {
     }
 };
 
+const parseQuizResponse = (content) => {
+    const fencedJson = content.match(/```(?:json)?\s*([\s\S]*?)\s*```/i)?.[1];
+    const jsonText = fencedJson || content.slice(content.indexOf("{"), content.lastIndexOf("}") + 1);
+
+    if (!jsonText) {
+        throw new Error("Groq returned a response without quiz JSON");
+    }
+
+    return JSON.parse(jsonText);
+};
+
 app.post("/quiz", async (req, res) => {
     try {
         const { code, numberOfQuestions = 5 } = req.body;
@@ -98,11 +109,10 @@ app.post("/quiz", async (req, res) => {
             },
             body: JSON.stringify({
                 model: process.env.GROQ_MODEL || "llama-3.1-8b-instant",
-                response_format: { type: "json_object" },
                 messages: [
                     {
                         role: "system",
-                        content: "You are an expert programming instructor. Return only valid JSON."
+                        content: "You are an expert programming instructor. Return only the requested JSON object, with no markdown or additional text."
                     },
                     {
                         role: "user",
@@ -130,7 +140,7 @@ ${code}
             throw new Error("Groq returned an empty quiz response");
         }
 
-        const quiz = JSON.parse(content);
+        const quiz = parseQuizResponse(content);
 
         if (
             !Array.isArray(quiz.questions) ||
