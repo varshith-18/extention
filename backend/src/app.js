@@ -3,22 +3,30 @@ const cors = require('cors');
 require('dotenv').config();
 const { GoogleGenAI } = require("@google/genai");
 const app = express();
-const port = process.env.PORT || 5000;
 
 
 app.use(express.json());
 app.use(cors());
-
+const PORT = process.env.PORT;  
 const ai = new GoogleGenAI({
-    apiKey: process.env.GEMINI_API_KEY
+    apiKey: process.env.GEMINI_API_KEY,
 });
+
+app.post("/generate",(req, res) => {
+  const prompt = req.query.prompt;
+  const ask = req.query.ask;
+  
+
+  
+
+})
 
 
 app.get('/health', (req, res) => {
     res.status(200).json({
         status: 'ok',
         message: 'Server is running',
-        port: port
+        port: PORT
     });
 });
 app.listen(PORT, () => {
